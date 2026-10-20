@@ -5,46 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>错题喵 iOS · 安装</title>
 <style>
-  :root { color-scheme: light; }
-  body { margin:0; font: -apple-system-body; font-family:-apple-system,"PingFang SC",sans-serif;
-         background:#FFF8F0; color:#2B2016; padding:22px 18px 48px; }
+  body { margin:0; font-family:-apple-system,"PingFang SC",sans-serif; background:#FFF8F0; color:#2B2016; padding:22px 18px 48px; }
   h1 { font-size:22px; margin:0 0 6px; }
   .sub { color:#8A7B6C; font-size:13px; margin:0 0 18px; line-height:1.6; }
-  .card { background:#fff; border-radius:18px; padding:18px 16px; margin:0 0 14px;
-          box-shadow:0 2px 10px rgba(180,140,90,.10); }
+  .card { background:#fff; border-radius:18px; padding:18px 16px; margin:0 0 14px; box-shadow:0 2px 10px rgba(180,140,90,.10); }
   .card h2 { font-size:16px; margin:0 0 8px; }
   .card p { font-size:13px; line-height:1.65; color:#5B4A39; margin:0 0 10px; }
-  .btn { display:block; text-align:center; text-decoration:none; font-size:15px; font-weight:600;
-         color:#fff; background:#F5A524; border-radius:14px; padding:13px 12px; margin:8px 0 0; }
+  .btn { display:block; text-align:center; text-decoration:none; font-size:15px; font-weight:600; color:#fff; background:#F5A524; border-radius:14px; padding:13px 12px; margin:8px 0 0; }
   .btn.alt { background:#fff; color:#B26B00; border:1.5px solid #F3C77A; }
-  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px;
-         background:#FFE7B8; color:#8A5A00; margin-left:6px; vertical-align:middle; }
-  ol { margin:0; padding-left:18px; font-size:13px; line-height:1.8; color:#5B4A39; }
+  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#FFE7B8; color:#8A5A00; margin-left:6px; vertical-align:middle; }
+  ol { margin:0; padding-left:18px; font-size:13px; line-height:1.85; color:#5B4A39; }
   code { background:#F6EEE3; padding:1px 5px; border-radius:5px; font-size:12px; }
   .foot { font-size:11px; color:#9A8B7B; line-height:1.7; margin-top:18px; }
+  details { margin-top:10px; }
+  summary { font-size:13px; color:#B26B00; cursor:pointer; }
 </style>
 </head>
 <body>
   <h1>错题喵 iOS 安装</h1>
-  <p class="sub">选一种方式把 App 装到这台 iPhone / iPad。免费 Apple ID 也能装，但签名 7 天到期需要重签。</p>
+  <p class="sub">免费 Apple ID 也能装；签名 7 天到期需要在手机上重签一次。选一种方式把 App 装到这台设备。</p>
 
   <div class="card">
-    <h2>方式一：SideStore / AltStore 一键安装<span class="tag">免费</span></h2>
-    <p>点下面的按钮，系统会唤起 SideStore（或 AltStore）用它自己的签名流程安装本 App。</p>
+    <h2>方式一：SideStore 一键安装<span class="tag">免费 · 推荐</span></h2>
+    <p>点下面的按钮，系统会唤起 SideStore，用它自己的签名流程安装本 App。</p>
     <a class="btn" href="sidestore://install?url=https://jiajieer2021.github.io/papertutor-ios-dist/PaperTutor-unsigned.ipa">用 SideStore 安装</a>
     <a class="btn alt" href="altstore://install?url=https://jiajieer2021.github.io/papertutor-ios-dist/PaperTutor-unsigned.ipa">用 AltStore 安装</a>
-    <p style="margin-top:12px">没装过 SideStore / AltStore？先按方式三准备（只需要在电脑上做一次）。</p>
+    <details>
+      <summary>没装 SideStore？展开看首次配置（电脑只做一次）</summary>
+      <ol>
+        <li>电脑装 <b>Sideloadly</b>，从 <a href="https://github.com/SideStore/SideStore/releases">SideStore Releases</a> 下载 <code>SideStore.ipa</code>，连线装到手机；
+        <li>iPhone 连电脑 → 点「信任此电脑」→ 运行 <code>jitterbugpair.exe</code>，得到 <code>*.mobiledevicepairing</code> 配对文件；
+        <li>把这个配对文件发到手机，在 SideStore 里 <b>Settings → Choose Pairing File</b> 导入，并登录同一 Apple ID；
+        <li>iOS 17.4 以上还需要装 SideStore 给的<b>本地 VPN 配置</b>（WireGuard/StosVPN），否则会报 no Wi-Fi or VPN；
+        <li>回到本页点「用 SideStore 安装」即可。</li>
+      </ol>
+    </details>
   </div>
 
   <div class="card">
     <h2>方式二：OTA 直装<span class="tag">需付费开发者账号</span></h2>
     <p>只有用 <code>Ad Hoc</code> / <code>Enterprise</code> 证书签名、并把本机 UDID 加进 provisioning profile 后可用。</p>
     <a class="btn" href="itms-services://?action=download-manifest&amp;url=https://jiajieer2021.github.io/papertutor-ios-dist/manifest.plist">通过 itms-services 安装</a>
-    <p style="margin-top:10px;color:#9A8B7B">若提示「无法连接」或「无法安装」，说明当前 <code>PaperTutor.ipa</code> 仍是未签名包 —— 请用方式一。</p>
+    <p style="margin-top:10px;color:#9A8B7B">当前页面上的 ipa 是<b>未签名</b>包，这个按钮会失败 —— 未签名无法直装，请用方式一或方式三。</p>
   </div>
 
   <div class="card">
-    <h2>方式三：电脑下载 + Sideloadly</h2>
+    <h2>方式三：下载 ipa + Sideloadly</h2>
     <a class="btn alt" href="https://jiajieer2021.github.io/papertutor-ios-dist/PaperTutor-unsigned.ipa">下载 PaperTutor-unsigned.ipa</a>
     <ol style="margin-top:12px">
       <li>Windows 装 <code>Sideloadly</code>，iPhone 用线连电脑；</li>
