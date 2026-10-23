@@ -19,7 +19,7 @@
       <key>metadata</key>
       <dict>
         <key>bundle-identifier</key><string>com.papertutor.miao</string>
-        <key>bundle-version</key><string>1.0.0</string>
+        <key>bundle-version</key><string>1.52.0</string>
         <key>kind</key><string>software</string>
         <key>title</key><string>错题喵</string>
       </dict>
@@ -27,3 +27,4 @@
   </array>
 </dict>
 </plist>
+
